@@ -7,3 +7,6 @@ Lucas de Almeida Pires | 562757
 
 Empresa: Fluxo Zero
 Turma: 1ESPG
+
+Link do Repositório no GitHub: https://github.com/Global-Solution-Fluxo-Zero/FrontEnd-WebDesign
+Link do Figma: https://www.figma.com/design/mQ1Xu2DjXy6Qf19UMCyuIa/DESIGN-FLUXOZERO-GS?node-id=35-322&t=PonUJhmOh76H4ks7-1
