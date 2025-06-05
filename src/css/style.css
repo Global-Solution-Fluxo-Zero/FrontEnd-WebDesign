@@ -1,0 +1,661 @@
+    /* Reset básico e fontes */
+*, *::before, *::after {
+    box-sizing: border-box; /* Melhora o modelo de caixa */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: #333; /* Cor de texto padrão */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Fonte genérica */
+    line-height: 1.6;
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura da tela */
+    display: flex; /* Ajuda com o footer no futuro, se necessário */
+    flex-direction: column; /* Ajuda com o footer no futuro */
+}
+
+main {
+    flex-grow: 1; /* Permite que o main cresça para ocupar espaço */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px; /* Adiciona um pouco de padding lateral */
+    padding-right: 15px; /* Adiciona um pouco de padding lateral */
+}
+
+/* Cabeçalho */
+header {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    position: sticky; /* Cabeçalho fixo no topo */
+    top: 0;
+    z-index: 1000; /* Garante que o header fique acima de outros conteúdos */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #00509E;
+    margin-bottom: 5px; /* Espaço se quebrar linha */
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha dos itens de menu */
+}
+
+header nav ul li {
+    margin-left: 15px;
+    margin-bottom: 5px; /* Espaço se quebrar linha */
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li a {
+    font-size: 0.9em;
+    color: #555;
+    font-weight: bold;
+    padding: 5px 0; /* Melhora área de clique */
+}
+
+header nav ul li a:hover {
+    color: #B9E0EF;
+}
+
+.site-color-note {
+    font-size: 0.8em;
+    color: #777;
+    text-align: right;
+    flex-basis: 100%; /* Ocupa toda a largura em telas pequenas se quebrar */
+    margin-top: 5px;
+    order: 3; /* Garante que fique por último se o header quebrar */
+}
+
+/* Seção Hero (Slideshow) */
+.hero {
+    width: 100%;
+    background-color: #e0e0e0; /* Cor de fundo genérica */
+    padding-top: 20px; /* Reduzido, pois a nota está no container */
+    padding-bottom: 20px;
+    text-align: center; /* Para centralizar a nota se ela estiver sozinha */
+}
+
+.hero .slideshow-note {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 3px;
+    display: inline-block; /* Para não ocupar largura total */
+    margin-bottom: 15px;
+}
+
+.hero-images-container {
+    display: flex;
+    justify-content: space-around; /* Ou space-between se preferir sem margens laterais */
+    align-items: flex-start;
+    gap: 10px; /* Espaço entre as imagens */
+    max-width: 100%; /* Garante que o container não ultrapasse a tela */
+    /* Se as imagens devem ocupar a largura toda, use o .container para as imagens também */
+    /* Ou defina width: 100% para hero-images-container e controle as imagens dentro */
+}
+
+.hero-image {
+    width: 32%;
+    max-width: 400px; /* Limite máximo para não ficarem gigantes */
+    height: 250px; /* Altura fixa como na imagem original */
+    object-fit: cover;
+    border-radius: 4px; /* Pequeno arredondamento */
+}
+
+/* Seções Genéricas */
+section {
+    padding: 40px 0; /* Espaçamento vertical para todas as seções */
+    width: 100%;
+}
+
+
+/* Seção Problema */
+.problem-section{
+    background-color: #0077B6;
+    color: white;
+}
+.problem-section .container { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Quebra de linha */
+    gap: 30px; /* Espaço entre texto e imagem */
+}
+.problem-content {
+    flex: 1;
+    min-width: 300px;
+}
+.problem-section h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+.problem-section ul li {
+    font-size: 1.1em;
+    color: white;
+    margin-bottom: 12px;
+    background: url('check-icon.png') no-repeat left center;
+    padding-left: 30px;
+    background-size: 20px;
+}
+.problem-image {
+    flex-basis: 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+
+/* Seção Ícones */
+.icon-section .container {
+    display: flex;
+    justify-content: space-around; /* Melhora distribuição */
+    align-items: center;
+    flex-wrap: wrap; /* Para quebrar em telas menores */
+    gap: 20px;
+}
+
+.icon-block img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease; /* Efeito de hover */
+}
+.icon-block img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Seção Objetivos */
+.objectives-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Quebra de linha */
+    gap: 30px; /* Espaço entre texto e imagem */
+}
+
+.objectives-content {
+    flex: 1; /* Ocupa o espaço disponível */
+    min-width: 300px; /* Largura mínima antes de quebrar */
+}
+
+.objectives-section h2 {
+    color: #00509E;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.objectives-section ul li {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 12px;
+    background: url('check-icon.png') no-repeat left center;
+    padding-left: 30px;
+    background-size: 20px;
+}
+
+.objectives-image {
+    flex-basis: 300px; /* Base para a imagem */
+    max-width: 100%; /* Garante que não ultrapasse o container */
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* Seção Tecnologias */
+.technologies-section {
+    background-color: #00509E;
+    color: #fff;
+}
+
+.technologies-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.technologies-section .tech-description {
+    flex: 1;
+    min-width: 300px;
+}
+
+.technologies-section .tech-description p {
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.technologies-section .tech-title-and-icon {
+    flex-basis: 300px;
+    text-align: center; /* Centraliza o título e imagem */
+}
+
+.technologies-section h2 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.technologies-image {
+    max-width: 180px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Seção Público-Alvo */
+.target-audience-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.target-audience-section .target-images {
+    flex-basis: 300px; /* Base para as imagens */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.target-audience-section .target-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.target-audience-section .target-description {
+    flex: 1;
+    min-width: 300px;
+}
+
+.target-audience-section h2 {
+    color: #00509E;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.target-audience-section p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center; /* Centraliza logo e nav */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center; /* Centraliza itens do menu */
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 8px;
+    }
+
+    .site-color-note {
+        text-align: center;
+        margin-top: 10px;
+        flex-basis: auto; /* Ajusta base em telas menores */
+    }
+
+    .hero-images-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-image {
+        width: 90%; /* Ocupa mais da largura da tela */
+        margin-bottom: 10px;
+        height: 200px; /* Pode ajustar altura */
+    }
+   
+
+
+    .problem-section .container,
+    .objectives-section .container,
+    .technologies-section .container,
+    .target-audience-section .container {
+        flex-direction: column;
+        text-align: center; /* Centraliza texto em seções */
+    }
+    
+    .objectives-content,
+    .technologies-section .tech-description,
+    .technologies-section .tech-title-and-icon,
+    .target-audience-section .target-images,
+    .target-audience-section .target-description {
+        flex-basis: 100%; /* Ocupa toda a largura disponível */
+        text-align: center;
+    }
+
+    .objectives-section ul {
+        padding-left: 0; /* Remove padding para centralizar itens */
+        text-align: left; /* Alinha texto da lista à esquerda dentro do bloco centralizado */
+        display: inline-block; /* Para que o text-align:left funcione no contexto do pai centralizado */
+    }
+    .objectives-section ul li {
+         background-position: 0px center; /* Ajusta posição do ícone */
+         padding-left: 30px; /* Garante espaço para o ícone */
+    }
+
+
+    .objectives-image,
+    .technologies-image {
+        margin: 20px auto;
+    }
+    
+    .target-audience-section .target-images img {
+        max-width: 280px; /* Limita tamanho da imagem no mobile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .problem-section h2,
+    .objectives-section h2,
+    .technologies-section h2,
+    .target-audience-section h2 {
+        font-size: 1.6em; /* Reduz um pouco o H2 no mobile */
+    }
+    .problem-section p,
+    .objectives-section ul li,
+    .technologies-section .tech-description p,
+    .target-audience-section p {
+        font-size: 1em; /* Reduz um pouco o texto no mobile */
+    }
+
+    .icon-section .container {
+        gap: 30px; /* Aumenta o gap para melhor visualização */
+    }
+    .icon-block img {
+        width: 70px; /* Levemente menor no mobile */
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Mais largura em telas bem pequenas */
+    }
+
+    header .logo {
+        font-size: 1.5em;
+    }
+    header nav ul li a {
+        font-size: 0.85em;
+    }
+
+    .hero-image {
+        height: 180px;
+    }
+
+    .problem-section h2,
+    .objectives-section h2,
+    .technologies-section h2,
+    .target-audience-section h2 {
+        font-size: 1.4em;
+    }
+    .problem-section p,
+    .objectives-section ul li,
+    .technologies-section .tech-description p,
+    .target-audience-section p {
+        font-size: 0.95em;
+    }
+
+    .icon-block img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Seção objetivos da solução */
+
+/* Precisa colocar a imagem no canto direito */
+.objectives-solution {
+    background-color: #90E0EF;
+    display: flex;
+}
+.objectives-solution h2{
+    display: flex;
+}
+.objectives-solution-content {
+    display: flex;
+}
+.obejective-solution-img {
+    display: flex;
+}
+
+/* Campo de ajuda  */
+.help-field {
+    align-items: center;
+    text-align: center;
+}
+.help-field-content p {
+    border-bottom: 2px solid #0077B6;
+}
+.help-field-img {
+    padding-top: 15px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #0077B6;
+    color: white;
+    padding-top: 40px;
+    width: 100%;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    gap: 20px;
+}
+.footer-section {
+    padding: 0 10px; /* Pequeno padding interno para as seções */
+    margin-bottom: 20px; /* Margem inferior para quando os itens empilham */
+}
+
+.footer-logo-area {
+    flex: 1 1 200px; /* Base flexível, permite crescer e encolher, base de 200px */
+    display: flex;
+    align-items: center; /* Centraliza o logo verticalmente se houver espaço extra */
+}
+
+.footer-logo-area img {
+    max-width: 180px; /* Ajuste o tamanho do seu logo */
+    height: auto;
+}
+
+.footer-quick-links,
+.footer-social-media,
+.footer-contact-details {
+    flex: 1 1 180px; /* Base flexível para estas seções */
+}
+
+.footer-info-group {
+    flex: 2 1 300px; /* Permite que este grupo ocupe mais espaço se necessário */
+    display: flex;
+    flex-direction: column; /* Redes sociais e contato um abaixo do outro */
+    gap: 20px; /* Espaço entre redes sociais e contato */
+}
+
+
+.footer-legal-credits {
+    flex: 2 1 300px; /* Base flexível, pode ocupar mais espaço */
+    text-align: left; /* Alinhamento padrão, mas pode ser ajustado */
+    font-size: 0.8em;
+    line-height: 1.4;
+}
+
+footer h4 {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social-media ul li a {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    width: 16px; /* Ajuste o tamanho dos seus ícones */
+    height: 16px;
+    margin-right: 8px;
+    /* Para o placeholder, você pode adicionar um fundo para visualização */
+    /* background-color: #fff; 
+    border-radius: 3px; */
+}
+
+.footer-contact-details p {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+}
+
+.project-credits {
+    margin-bottom: 15px;
+    font-size: 0.85em;
+    color: #e0e0e0; /* Cor um pouco mais suave para os créditos */
+}
+
+.copyright-text {
+    font-size: 0.85em;
+    color: #e0e0e0;
+}
+
+.footer-bottom-bar {
+    height: 8px; /* Altura da barrinha inferior */
+    background-color: #39A7DE; /* Azul mais claro da barrinha (ajuste conforme sua cor exata) */
+    width: 100%;
+    margin-top: 30px; /* Espaço acima da barrinha */
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .footer-container {
+        justify-content: flex-start; /* Alinha os itens à esquerda em telas médias */
+    }
+    .footer-logo-area {
+        flex-basis: 100%; /* Logo ocupa toda a largura */
+        justify-content: center; /* Centraliza o logo */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .footer-legal-credits {
+        text-align: left; /* Mantém alinhamento à esquerda para os créditos */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Empilha as seções */
+        align-items: center; /* Centraliza as seções empilhadas */
+        text-align: center; /* Centraliza o texto dentro das seções */
+    }
+
+    .footer-section {
+        flex-basis: auto !important; /* Remove a base flex para empilhamento */
+        width: 100%; /* Ocupa a largura total quando empilhado */
+        max-width: 350px; /* Limita a largura para melhor leitura */
+        padding: 0;
+    }
+    
+    .footer-info-group {
+        align-items: center; /* Centraliza o conteúdo do grupo de info */
+    }
+
+    .footer-social-media ul,
+    .footer-quick-links ul {
+        display: inline-block; /* Permite centralizar listas */
+        text-align: left; /* Mantém texto da lista alinhado à esquerda */
+    }
+    
+    .footer-social-media ul li a {
+        justify-content: flex-start; /* Alinha ícone e texto à esquerda na lista */
+    }
+
+    .footer-legal-credits,
+    .footer-contact-details p {
+        text-align: center; /* Centraliza os parágrafos */
+    }
+}
+
+@media (max-width: 480px) {
+    footer h4 {
+        font-size: 0.95em;
+    }
+    footer ul li a,
+    .footer-contact-details p,
+    .footer-legal-credits {
+        font-size: 0.85em;
+    }
+    .social-icon {
+        width: 14px;
+        height: 14px;
+    }
+}
