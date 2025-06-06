@@ -1,0 +1,182 @@
+:root {
+    --phone-height: 170vh;
+}
+
+html, body {
+  width: 100vw;
+  overflow-x: hidden; /* evita rolagem horizontal */
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (width < 1320px) {
+    .change-color {
+        left: 90%;
+    }
+
+    /*o problema*/
+    .problem-content {
+        flex-direction: column;
+    }
+
+    /*tecnologia usadas*/
+    .icon-section {
+        flex-direction: column;
+    }
+
+    .icon-block1 {
+        position: absolute;
+        left: 8%;
+        top: 210%
+    }
+
+    .icon-block2 {
+        position: absolute;
+        left: 40%;
+        top: 210%
+    }
+
+    .icon-block3 {
+        position: absolute;
+        left: 70%;
+        top: 210%
+    }
+
+    .icon-section>p {
+        margin-top: 30vh;
+        width: 50rem;
+    }
+
+    /*objetivos*/
+    .objectives-section {
+        flex-direction: column;
+    }
+
+    .objectives-section>p {
+        width: 50rem;
+    }
+
+    /*publico-alvo*/
+    .target-audience-section {
+        flex-direction: column;
+
+    }
+
+    .target-audience-section>p {
+        margin-top: 5rem;
+        padding-left: 0;
+        width: 46rem;
+    }
+
+    .target-images {
+        margin-left: -5rem;
+    }
+
+    /* impacto */
+    .impact {
+        flex-direction: column;
+    }
+
+    /*diadia*/
+
+    /*footer*/
+    footer>.footer-3 {
+        width: 10rem;
+    }
+
+}
+
+@media screen and (width < 880px) {
+    .change-color {
+        left: 87%;
+    }
+
+    /*o problema*/
+    .problem-content {
+        height: var(--phone-height);
+    }
+
+    /*tecnologia usadas*/
+    .icon-section {
+        flex-direction: column;
+    }
+
+    .icon-block1 {
+        position: absolute;
+        left: 8%;
+        top: 280%
+    }
+
+    .icon-block2 {
+        position: absolute;
+        left: 40%;
+        top: 280%
+    }
+
+    .icon-block3 {
+        position: absolute;
+        left: 70%;
+        top: 280%
+    }
+
+    .icon-section>p {
+        margin-top: 30vh;
+        width: 35rem;
+    }
+
+    /*objetivos*/
+    .objectives-section {
+        flex-direction: column;
+    }
+
+    .objectives-section>p {
+        width: 35rem;
+    }
+
+    /*publico-alvo*/
+    .target-audience-section>p {
+        margin-top: 5rem;
+        padding-left: 0;
+        width: 25rem;
+    }
+
+    .target-images {
+        margin-left: -17rem;
+    }
+
+    /* impacto */
+    .impact>p {
+        width: 35rem;
+    }
+
+    /*diadia*/
+    .dia-dia {
+        height: 170vh;
+    }
+
+    .options {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /*footer*/
+    footer {
+        height: 80vh;
+        flex-direction: column;
+    }
+
+    footer>.footer-1 {
+        text-align: center;
+        width: 50rem;
+    }
+
+    footer>.footer-2 {
+        text-align: center;
+        width: 50rem;
+    }
+
+    footer>.footer-3 {
+        text-align: center;
+        width: 50rem;
+    }
+}
