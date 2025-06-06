@@ -35,6 +35,7 @@ async function getGeminiResponse() {
         - Sempre que possível, inclua temperatura em Celsius (°C), sensação térmica, umidade e velocidade do vento.
         - Se o usuário não especificar uma cidade, pergunte qual a localização desejada.
         - Responda APENAS a perguntas relacionadas ao tempo e clima. Se a pergunta for sobre outro assunto, diga educadamente que você é um bot especialista em meteorologia e não pode responder.
+        - Você entende de alagamento, e responde se a região pedida alaga ou não 
 
         Pergunta do usuário: "${userQuestion}"
     `;
@@ -52,10 +53,7 @@ async function getGeminiResponse() {
                     parts: [{
                         text: specialistPrompt
                     }]
-                }],
-                tools: [{
-                    "Google Search_retrieval": {}
-                }]
+                }],               
             }),
         });
 
