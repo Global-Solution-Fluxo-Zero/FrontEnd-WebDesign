@@ -1,0 +1,38 @@
+:root {
+  --slide-count: 3;
+  --slide-width: 160vh;
+  --carousel-edge-pos: calc(
+    0% - ((var(--slide-width) * var(--slide-count)) - 100%)
+  );
+}
+
+.css-carousel {
+  display: flex;
+  align-items: stretch;
+ 
+  -webkit-overflow-scrolling: touch;
+  animation: scroll 25s linear alternate infinite;
+  animation-play-state: running;
+}
+
+.css-carousel figure {
+  margin: 0;
+  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+
+img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: var(--slide-width);
+  height: 100%;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--carousel-edge-pos));
+  }
+}
