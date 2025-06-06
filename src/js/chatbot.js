@@ -3,7 +3,6 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
-// CORREÇÃO: O ID no seu HTML é 'chatbot-message', não 'chat-box'.
 const messagesContainer = document.getElementById('chatbot-message'); 
 
 // Função para adicionar mensagem na tela
@@ -21,14 +20,25 @@ function addMessage(text, sender) {
 
 // Função para enviar a pergunta para a API do Gemini
 async function getGeminiResponse() {
-    const prompt = userInput.value.trim();
-    if (prompt === '') return;
+    const userQuestion = userInput.value.trim(); 
+    if (userQuestion === '') return;
 
-    addMessage(prompt, 'user');
-    userInput.value = ''; // Limpa o input
+    addMessage(userQuestion, 'user');
+    userInput.value = '';
+    addMessage('Analisando os céus...', 'bot-typing'); 
 
-    // Opcional: Adicionar um indicador de "digitando..." para melhor experiência do usuário
-    addMessage('Digitando...', 'bot-typing');
+
+    //    Este texto instrui a IA sobre como ela deve se comportar.
+    const specialistPrompt = `
+        Aja como um meteorologista especialista e amigável.
+        Sua missão é fornecer previsões do tempo precisas e fáceis de entender.
+        - Sempre que possível, inclua temperatura em Celsius (°C), sensação térmica, umidade e velocidade do vento.
+        - Se o usuário não especificar uma cidade, pergunte qual a localização desejada.
+        - Responda APENAS a perguntas relacionadas ao tempo e clima. Se a pergunta for sobre outro assunto, diga educadamente que você é um bot especialista em meteorologia e não pode responder.
+
+        Pergunta do usuário: "${userQuestion}"
+    `;
+
 
     try {
         const response = await fetch(API_URL, {
@@ -37,7 +47,15 @@ async function getGeminiResponse() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }]
+                // 2. Enviamos o prompt completo para a API
+                contents: [{
+                    parts: [{
+                        text: specialistPrompt
+                    }]
+                }],
+                tools: [{
+                    "Google Search_retrieval": {}
+                }]
             }),
         });
 
@@ -46,16 +64,13 @@ async function getGeminiResponse() {
         }
 
         const data = await response.json();
-        
-        // MELHORIA: Acessa a resposta de forma mais segura para evitar erros.
         const botResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-        // Remove o indicador de "digitando..."
         const typingIndicator = document.querySelector('.bot-typing-message');
         if (typingIndicator) {
             typingIndicator.remove();
         }
-        
+
         if (botResponse) {
             addMessage(botResponse, 'bot');
         } else {
@@ -63,13 +78,12 @@ async function getGeminiResponse() {
         }
 
     } catch (error) {
-        // Remove o indicador de "digitando..." também em caso de erro
         const typingIndicator = document.querySelector('.bot-typing-message');
         if (typingIndicator) {
             typingIndicator.remove();
         }
         console.error('Erro ao buscar resposta do Gemini:', error);
-        addMessage('Desculpe, não consegui processar sua pergunta. Tente novamente.', 'bot');
+        addMessage('Desculpe, uma tempestade interferiu nos meus sistemas. Tente novamente.', 'bot');
     }
 }
 
