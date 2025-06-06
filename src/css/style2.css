@@ -397,3 +397,9 @@ footer>div>ul {
 .menu-hamburguer > ul > li> a {
     color: black;
 }
+
+/*form*/
+.form-box {
+    background-color: var(--color3);
+    color: white;
+}

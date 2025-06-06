@@ -1,0 +1,135 @@
+:root {
+    --button-width-normal: 30vw;
+    --button-width-small: 20vw;
+
+}
+
+.form-container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-box {
+    border: gray 2px solid;
+    border-radius: 20px;
+    margin-top: 10vh;
+    height: 70vh;
+    width: 90vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form-flex {
+    font-size: 2rem;
+}
+
+.description-flex>img {
+    height: auto;
+    width: 40vw;
+}
+
+input[type=text],
+select {
+    width: var(--button-width-normal);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=email],
+select {
+    width: var(--button-width-normal);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea,
+select {
+    width: var(--button-width-normal);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.text-form {
+    text-align: center;
+}
+
+#status {
+    text-align: center;
+    color: red;
+    font-size: 2rem;
+}
+
+@media (height < 800px) {
+
+    input[type=text],
+    select {
+        height: 3.5vh;
+    }
+
+    input[type=email],
+    select {
+        height: 3.5vh;
+    }
+
+    textarea,
+    select {
+        height: 3.5vh;
+    }
+}
+
+@media (height < 630px) {
+    .form-flex {
+        font-size: 0.9rem;
+    }
+
+    input[type=text],
+    select {
+        height: 0.3vh;
+    }
+
+    input[type=email],
+    select {
+        height: 0.3vh;
+    }
+
+    textarea,
+    select {
+        height: 0.3vh;
+    }
+
+    .description-flex>img {
+        height: auto;
+        width: 30vw;
+    }
+}

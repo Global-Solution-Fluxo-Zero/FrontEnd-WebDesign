@@ -13,6 +13,7 @@
     z-index: 1000;
     background-color: aliceblue;
     border-radius: 100%;
+    border: black 0.2px solid
 }
 
 .change-color:hover{

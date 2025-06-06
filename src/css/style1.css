@@ -380,3 +380,8 @@ footer>div>ul {
 .menu-hamburguer > ul > li> a {
     color: white;
 }
+
+/*form*/
+.form-box {
+    background-color: var(--color3);
+}
