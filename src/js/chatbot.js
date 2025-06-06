@@ -10,7 +10,6 @@ function addMessage(text, sender) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
     
-    // Usar textContent diretamente é mais seguro e eficiente para texto puro.
     messageElement.textContent = text;
     
     messagesContainer.appendChild(messageElement);
@@ -28,7 +27,7 @@ async function getGeminiResponse() {
     addMessage('Analisando os céus...', 'bot-typing'); 
 
 
-    //    Este texto instrui a IA sobre como ela deve se comportar.
+    //    Este texto instrui a IA sobre como ela deve se comportar
     const specialistPrompt = `
         Aja como um meteorologista especialista e amigável.
         Sua missão é fornecer previsões do tempo precisas e fáceis de entender.
@@ -48,7 +47,6 @@ async function getGeminiResponse() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                // 2. Enviamos o prompt completo para a API
                 contents: [{
                     parts: [{
                         text: specialistPrompt
@@ -85,7 +83,6 @@ async function getGeminiResponse() {
     }
 }
 
-// Event Listeners
 sendBtn.addEventListener('click', getGeminiResponse);
 userInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
