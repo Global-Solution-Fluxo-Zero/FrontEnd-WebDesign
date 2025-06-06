@@ -1,3 +1,121 @@
 .chatbot-section {
     height: 100vh;
 }
+/* Estilização da seção principal do chatbot */
+.chatbot-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Container principal do chatbot */
+.chatbot-container {
+    width: 100%;
+    max-width: 600px; 
+    height: 80vh; 
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Área de exibição das mensagens */
+.chatbot-message {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+}
+
+/* Estilo para as mensagens do chatbot (exemplo) */
+.chatbot-message .bot-message {
+    background-color: #e9e9eb;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 18px 18px 18px 5px;
+    align-self: flex-start;
+    max-width: 80%;
+}
+
+/* Estilo para as mensagens do usuário (exemplo) */
+.chatbot-message .user-message {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 18px 18px 5px 18px;
+    align-self: flex-end;
+    max-width: 80%;
+}
+
+/* Container do campo de entrada e botão */
+.chatbot-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #dcdcdc;
+    background-color: #f7f7f7;
+}
+
+/* Campo de texto para o usuário digitar */
+#user-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-right: 10px;
+    outline: none; 
+}
+
+#user-input:focus {
+    border-color: #007bff; 
+}
+
+/* Botão de envio */
+#send-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ---- Responsividade para Telas Menores (Celulares) ---- */
+@media (max-width: 600px) {
+    .chatbot-section {
+        align-items: flex-start; 
+        background-color: #ffffff;
+    }
+
+    .chatbot-container {
+        height: 100vh; 
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .chatbot-input {
+        padding: 10px;
+    }
+
+    #user-input {
+        font-size: 14px;
+    }
+
+    #send-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
