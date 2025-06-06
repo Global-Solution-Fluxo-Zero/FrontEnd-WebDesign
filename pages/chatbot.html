@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/font.css">
+    <link rel="stylesheet" href="../src/css/chatbot.css">
 </head>
 
 <body>
@@ -25,6 +26,20 @@
         </nav>
         <!--Lugar pra hamburguer-->
     </header>
-</body>
 
+
+    <!-- Lugar do chatbot -->
+     <main>
+        <div class="chatbot-container">
+            <div class="chatbot-message" id="chatbot-message"></div>
+            <div class="chatbot-input">
+                <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+                <button id="send-btn">Enviar Mensagem</button>
+            </div>
+        </div>
+     </main>
+
+
+</body>
+<script src="../src/js/chatbot.js"></script>
 </html>
